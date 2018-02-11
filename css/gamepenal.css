@@ -1,0 +1,15 @@
+#gameCanvas {
+    display: none;
+}
+#turn{
+	display: block;
+}
+
+@media only screen and (orientation: landscape) {
+    #gameCanvas {
+    	display: block;
+    }
+    #turn{
+		display: none;
+	}
+}
