@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,8 +11,11 @@
 	<link rel="stylesheet" media="screen and (max-width:768px)" type="text/css" href="css/mobilestyle.css"/>
 </head>
 <body>
-	
-
+	<div class="bg-primary">
+		<?php
+			include_once "menu.html";
+		?>
+	</div>
 
 
 
