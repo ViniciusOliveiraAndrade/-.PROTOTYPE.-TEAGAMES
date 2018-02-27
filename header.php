@@ -21,7 +21,7 @@
 	<link rel="stylesheet" media="screen and (max-width:768px)" type="text/css" href="css/mobilestyle.css"/>
 </head>
 <body>
-	<div class="row bg-primary">
+	<div class="bg-primary">
 		
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">

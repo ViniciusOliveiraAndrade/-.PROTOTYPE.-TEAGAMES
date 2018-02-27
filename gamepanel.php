@@ -1,5 +1,9 @@
 <?php 
 	session_start();
+
+	if (isset($_GET['game'])) {
+		$game = $_GET['game'];
+	}
  ?>
 <!DOCTYPE html>
 <html>
@@ -18,20 +22,42 @@
 	
 </head>
 <body>
-	<div class="row bg-primary">
+	<div class="bg-primary">
 		<?php 
 			include_once "menu.php";
 		?>
 	</div>
 
+	<script type="text/javascript">
+		function toggleFullScreen() {
+			var doc = window.document;
+			var docEl = doc.documentElement;
+
+			var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+			var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+			if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+				requestFullScreen.call(docEl);
+			}
+			else {
+				cancelFullScreen.call(doc);
+			}
+		}
+
+		toggleFullScreen();
+	</script>
+
 
 	<center>
 		<img id="turn" src="img/rotatedevice.gif">
 	</center>
-	<div id="gameCanvas"></div>
+	
+	<div id="gameCanvas">
 
+	</div>
 
-
+	<?php include_once "games/$game/index.html"; ?>
+	
 
 <?php
 	include_once "footer.html";
