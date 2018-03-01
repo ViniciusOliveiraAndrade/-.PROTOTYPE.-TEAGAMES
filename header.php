@@ -26,7 +26,7 @@
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 				
-				<button class="navbar-toggler active" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler active border border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			    	<span class="navbar-toggler-icon"></span>
 			  	</button>
 				<a class="navbar-brand text-center" href="index.php">TEA GAMES</a>

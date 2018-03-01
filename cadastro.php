@@ -25,7 +25,8 @@ if (isset($_GET['signup'])) {
  ?>
 
 <form class="form-signin col-md-4 col-sm-7 mx-auto my-5" action="includes/signup.inc.php" method="POST">
-	<h1 class="h3 mb-3 font-weight-normal text-center">Bem-vindo! <br> Casdastro</h1>
+	<h1 class="h3 mb-3 font-weight-normal text-center">Bem-vindo!</h1>
+	<h1 class="h3 mb-3 font-weight-normal text-center">Casdastro</h1>
 	
 	<input class="form-control" type="text" name="nome" placeholder="Nome" required autofocus>
 	<input class="form-control" type="text" name="email" placeholder="E-mail" required>

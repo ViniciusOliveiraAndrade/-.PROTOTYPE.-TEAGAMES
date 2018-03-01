@@ -1,4 +1,4 @@
-<div class="container-fluid card d-sm-none">
+<div class="container-fluid card d-md-none">
 	<nav class="nav">
 		<ul class="nav mx-auto text-center nav-justified">
 			<li class="nav-intem active">
