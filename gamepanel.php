@@ -1,8 +1,14 @@
 <?php 
 	session_start();
 
-	if (isset($_GET['game'])) {
+	if (!isset($_SESSION['user_id'])) {
+		header("Location: login.php");
+		exit();
+	}else if (isset($_GET['game'])) {
 		$game = $_GET['game'];
+	}else {
+		header("Location: index.php");
+		exit();
 	}
  ?>
 <!DOCTYPE html>
@@ -27,26 +33,6 @@
 			include_once "menu.php";
 		?>
 	</div>
-
-	<script type="text/javascript">
-		function toggleFullScreen() {
-			var doc = window.document;
-			var docEl = doc.documentElement;
-
-			var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-			var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-			if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-				requestFullScreen.call(docEl);
-			}
-			else {
-				cancelFullScreen.call(doc);
-			}
-		}
-
-		toggleFullScreen();
-	</script>
-
 
 	<center>
 		<img id="turn" src="img/rotatedevice.gif">

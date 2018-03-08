@@ -13,7 +13,7 @@
 			<a class="my-1" href="" >
 				<li class="list-group-item d-flex justify-content-between align-items-center">
 				   	Educativos
-				    	<span class="badge badge-primary badge-pill">0</span>
+				    	<span class="badge badge-primary badge-pill">1</span>
 				    
 				</li>
 			</a>

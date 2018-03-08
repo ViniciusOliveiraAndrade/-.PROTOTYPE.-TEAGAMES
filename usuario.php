@@ -10,10 +10,11 @@
  <?php 
  	include_once 'submenu.php'; 
  ?>
+<div class="jumbotron text-center">
+	<a href="https://goo.gl/forms/sQZZcs9GJgBDKglb2" class="btn bg-primary text-white">Questionário.</a>
+</div>
 
 
-
- 
 
 
  <?php 

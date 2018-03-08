@@ -7,10 +7,10 @@ function Box() {
 	this.height = (440*this.size)/100;
 	
 	this.imga = new Image();
-	this.imga.src = "img/box1.png";
+	this.imga.src = "games/vogal/img/box1.png";
 
 	this.imgb = new Image();
-	this.imgb.src = "img/box2.png";
+	this.imgb.src = "games/vogal/img/box2.png";
 
 
 	this.getArea = function () {

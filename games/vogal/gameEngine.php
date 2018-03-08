@@ -1,3 +1,10 @@
+<?php 
+
+	if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+ ?>
+
 var canvas, ctx, bg;
 var timeLoop;
 var timeCreateCaracter;
@@ -7,85 +14,85 @@ var erros = 0;
 var vogais = "aeiou";
 
 bg = new Image();
-bg.src = "img/bg.jpg";
+bg.src = "games/vogal/img/bg.jpg";
 
 var i1 = new Image();
-i1.src = "img/a.png";
+i1.src = "games/vogal/img/a.png";
 
 var i2 = new Image();
-i2.src = "img/b.png";
+i2.src = "games/vogal/img/b.png";
 
 var i3 = new Image();
-i3.src = "img/c.png";
+i3.src = "games/vogal/img/c.png";
 
 var i4 = new Image();
-i4.src = "img/d.png";
+i4.src = "games/vogal/img/d.png";
 
 var i5 = new Image();
-i5.src = "img/e.png";
+i5.src = "games/vogal/img/e.png";
 
 var i6 = new Image();
-i6.src = "img/f.png";
+i6.src = "games/vogal/img/f.png";
 
 var i7 = new Image();
-i7.src = "img/g.png";
+i7.src = "games/vogal/img/g.png";
 
 var i8 = new Image();
-i8.src = "img/h.png";
+i8.src = "games/vogal/img/h.png";
 
 var i9 = new Image();
-i9.src = "img/i.png";
+i9.src = "games/vogal/img/i.png";
 
 var i10 = new Image();
-i10.src = "img/j.png";
+i10.src = "games/vogal/img/j.png";
 
 var i11 = new Image();
-i11.src = "img/k.png";
+i11.src = "games/vogal/img/k.png";
 
 var i12 = new Image();
-i12.src = "img/l.png";
+i12.src = "games/vogal/img/l.png";
 
 var i13 = new Image();
-i13.src = "img/m.png";
+i13.src = "games/vogal/img/m.png";
 
 var i14 = new Image();
-i14.src = "img/n.png";
+i14.src = "games/vogal/img/n.png";
 
 var i15 = new Image();
-i15.src = "img/o.png";
+i15.src = "games/vogal/img/o.png";
 
 var i16 = new Image();
-i16.src = "img/p.png";
+i16.src = "games/vogal/img/p.png";
 
 var i17 = new Image();
-i17.src = "img/q.png";
+i17.src = "games/vogal/img/q.png";
 
 var i18 = new Image();
-i18.src = "img/r.png";
+i18.src = "games/vogal/img/r.png";
 
 var i19 = new Image();
-i19.src = "img/s.png";
+i19.src = "games/vogal/img/s.png";
 
 var i20 = new Image();
-i20.src = "img/t.png";
+i20.src = "games/vogal/img/t.png";
 
 var i21 = new Image();
-i21.src = "img/u.png";
+i21.src = "games/vogal/img/u.png";
 
 var i22 = new Image();
-i22.src = "img/v.png";
+i22.src = "games/vogal/img/v.png";
 
 var i23 = new Image();
-i23.src = "img/w.png";
+i23.src = "games/vogal/img/w.png";
 
 var i24 = new Image();
-i24.src = "img/x.png";
+i24.src = "games/vogal/img/x.png";
 
 var i25 = new Image();
-i25.src = "img/y.png";
+i25.src = "games/vogal/img/y.png";
 
 var i26 = new Image();
-i26.src = "img/z.png";
+i26.src = "games/vogal/img/z.png";
 
 // var i27 = new Image();
 // i27.src = "img/0.png";
@@ -117,20 +124,20 @@ i26.src = "img/z.png";
 // var i36 = new Image();
 // i36.src = "img/9.png";
 
-bgA = new Audio('song/bgS.ogg'); 
+bgA = new Audio('games/vogal/song/bgS.ogg'); 
 bgA.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
 }, false);
 
-clickA = new Audio("song/hit.ogg");
+clickA = new Audio("games/vogal/song/hit.ogg");
 
 
 window.addEventListener("resize", resizeWindow);
 
 function resizeWindow() {
 	document.getElementById("meucanvas").width = window.innerWidth;
-	document.getElementById("meucanvas").height = window.innerHeight - 63;
+	document.getElementById("meucanvas").height = window.innerHeight;
 	box.updateY(canvas.height);
 	box.updateX(event.clientX, canvas.width);
 	
@@ -148,12 +155,12 @@ function mudarBox(event) {
 }
 
 function criarLoop() {
-	timeLoop = setInterval(run, 1000/15);
+	timeLoop = setInterval(run, 1000/25);
 	bgA.play();
 }
 
 function criarCreater() {
-	timeCreateCaracter = setInterval(creater, 2000);
+	timeCreateCaracter = setInterval(creater, 1000);
 }
 
 function creater (){
@@ -202,7 +209,7 @@ function creater (){
 function init() {
 	canvas = document.getElementById("meucanvas");
 	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight - 63;
+	canvas.height = window.innerHeight;
 	canvas.addEventListener("click", mudarBox);
 	
 	ctx = canvas.getContext('2d');
@@ -262,6 +269,12 @@ function update() {
 	}
 
 	caracteres.forEach(gravidade);
+	if(pontos>=5){
+		clearInterval(timeLoop);
+		clearInterval(timeCreateCaracter);
+		salvarPartida();
+		
+	}
 
 }
 
@@ -285,4 +298,43 @@ function drawPlacar(ctx) {
 	ctx.strokeText("Erros: "+erros,20,30);
 	ctx.strokeText("Pontos: "+pontos,canvas.width - 150,30);
 
+}
+
+function salvarPartida(){
+	requisitar("GET","games/vogal/savePartida.php?user_id="+<?php $a = $_SESSION['user_id']; echo"$a";?>+"&erros="+erros);
+	window.history.back();
+      
+}
+
+//Toda a parte do AJAX fica a baixo
+//Função que vai iniciar o AJAX
+function iniciarAJAX(){
+	var ajax;
+	if (window.XMLHttpRequest){
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		ajax = new XMLHttpRequest();
+	}
+	else if (window.ActiveXObject){
+		// code for IE6, IE5
+		ajax = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	else{
+		alert("Your browser does not support XMLHTTP!");
+		return;
+	}
+	return ajax;
+}
+
+function requisitar(metodo,url){
+	
+	var xmlhttp = iniciarAJAX();
+	xmlhttp.onreadystatechange = function(){
+		if ( xmlhttp.readyState == 4) {
+			//Faço alguma coisa
+			
+		}
+	}
+	//Abro a conecção
+	xmlhttp.open(metodo,url);
+	xmlhttp.send(null);
 }
